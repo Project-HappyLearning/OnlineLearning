@@ -20,6 +20,12 @@
             <li class="item">
                 <a href="../ranking/rankingPage"><img src="../Assets/icon/icon (43).png"></a>
             </li>
+            <li class="item">
+                <a href="../eduinfor"><img src="../Assets/icon/icon (64).png" class="nav-icon"></a>
+            </li>
+            <li class="item">
+                <a href="../mainInstruction.jsp"><img src="../Assets/icon/icon (47).png" class="nav-icon"></a>
+            </li>
                <li class="item avt-btn" style="list-style: none; margin-bottom: 320px">
                 <!-- <a href="../"><img src="../Assets/icon/icon (4).png">
                 </a> -->
@@ -33,6 +39,7 @@
                         <li><a class="dropdown-item" href="../userprofile/viewUserProfile">Hồ sơ thông tin</a>
                         </li>
                         <li><a class="dropdown-item" href="../userprofile/changePassword">Đổi mật khẩu</a></li>
+                        <li><a class="dropdown-item" href="../userprofile/Support.jsp">Support center</a></li>
                         <li><a class="dropdown-item" href="../logout">Đăng xuất</a></li>
                        
                          <c:if test="${sessionScope.user.username eq sessionScope.admin}">
