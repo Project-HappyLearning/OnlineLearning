@@ -1,15 +1,17 @@
-﻿USE [master]
-GO
-/****** Object:  Database [demo_OnlineLearning]******/
-CREATE DATABASE [demo_OnlineLearning]
+﻿
+/****** Object:  Database [SWP391_G6]******/
+--CREATE DATABASE [SWP391_G6_v2]
  
-USE [demo_OnlineLearning]
+USE [SWP391_G6_v2]
 GO
 /****** Object:  Table [dbo].[Account]******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
+
+
 CREATE TABLE [dbo].[Account](
 	[username] [varchar](150) NOT NULL,
 	[password] [varchar](150) NOT NULL,
@@ -169,6 +171,11 @@ CREATE TABLE [dbo].[Lession_Audio](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+
+
+
+
 /****** Object:  Table [dbo].[Lession_Content]******/
 SET ANSI_NULLS ON
 GO
@@ -386,6 +393,9 @@ CREATE TABLE [dbo].[User](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+
+
 /****** Object:  Table [dbo].[User_Class]******/
 SET ANSI_NULLS ON
 GO
@@ -416,6 +426,74 @@ CREATE TABLE [dbo].[Video](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+/****** Object:  Table [dbo].[Feedback]******/
+CREATE TABLE Feedback (
+    feedbackID INT PRIMARY KEY,
+    userID INT NOT NULL,
+    feedbackTypeID INT NOT NULL ,
+    createAt DATETIME NOT NULL,
+    lesson_id INT NOT NULL,
+	FOREIGN KEY (lesson_id) REFERENCES Lession(lession_id),
+	FOREIGN KEY (feedbackTypeID) REFERENCES FeedbackTypes(feedbackTypeID),
+);
+/****** Object:  Table [dbo].[FeedbackTypes]******/
+CREATE TABLE FeedbackTypes (
+    feedbackTypeID INT PRIMARY KEY,
+    feedbackType NVARCHAR(50) NOT NULL,
+    feedbackIcon VARCHAR(255) NOT NULL
+);
+
+INSERT INTO FeedbackType (feedbackTypeID, feedbackType, feedbackIcon) VALUES
+(1, 'Tuyệt vời', 'https://img.icons8.com/external-neu-royyan-wijaya/64/000000/external-emoji-neumojis-smiley-neu-royyan-wijaya-30.png'),
+(2, 'Cũng ổn', 'https://img.icons8.com/external-neu-royyan-wijaya/64/000000/external-emoji-neumojis-smiley-neu-royyan-wijaya-3.png'),
+(3, 'Hơi chán', 'https://img.icons8.com/external-neu-royyan-wijaya/64/000000/external-emoji-neumojis-smiley-neu-royyan-wijaya-17.png');
+
+INSERT INTO Feedback (feedbackID, userID, feedbackTypeID, createAt, lesson_id) VALUES
+(4, 10, 3, '2024-07-15 20:55:19.787', 105),
+(5, 10, 1, '2024-07-15 20:55:59.133', 105),
+(6, 19, 1, '2024-07-15 22:06:16.473', 1),
+(7, 19, 2, '2024-07-15 22:25:54.813', 2),
+(8, 19, 3, '2024-07-15 22:27:30.273', 4),
+(9, 19, 1, '2024-07-15 22:28:52.137', 6),
+(10, 19, 2, '2024-07-15 22:29:53.670', 24),
+(11, 14, 3, '2024-07-15 22:33:47.560', 1),
+(12, 14, 1, '2024-07-15 22:57:05.413', 25),
+(13, 10, 1, '2024-07-16 08:31:19.620', 25),
+(14, 10, 3, '2024-07-16 22:18:58.730', 86);
+
+/****** Object:  Table [dbo].[EducationInformation]******/
+CREATE TABLE [dbo].[EducationInformation](
+    [id] [int] IDENTITY(1,1) NOT NULL,
+    [title] [nvarchar](255)  NOT NULL,
+    [link_infor] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_EducationInformation] PRIMARY KEY CLUSTERED 
+(
+    [id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+INSERT [dbo].[EducationInformation]([title],[link_infor]) VALUES(N'Galaxy Education công bố hợp tác chiến lược với FUNiX để phát triển nền tảng dạy học trực tuyến tại Việt Nam','https://education.galaxy.com.vn/tin-tuc/galaxy-education-cong-bo-hop-tac-chien-luoc-voi-funix-de-phat-trien-nen-tang-day-hoc-truc-tuyen-tai-viet-nam')
+
+/****** Object:  Table [dbo].[messages]******/
+CREATE TABLE messages (
+    id INT PRIMARY KEY,
+    user_id INT,
+    message_text TEXT,
+    created_at DATETIME ,
+    responded BIT,
+    response_text TEXT
+);
+INSERT INTO messages (id, user_id, message_text, created_at, responded, response_text)
+VALUES
+(1, 101, 'Hello, how are you?', '2024-07-19 08:30:00', 0, NULL),
+(2, 102, 'Can you help me with my project?', '2024-07-19 09:00:00', 1, 'Sure, I can help you. What do you need assistance with?'),
+(3, 103, 'What is the weather like today?', '2024-07-19 09:30:00', 0, NULL),
+(4, 104, 'I would like to schedule a meeting.', '2024-07-19 10:00:00', 1, 'Meeting scheduled for tomorrow at 3 PM.'),
+(5, 105, 'Please review my code.', '2024-07-19 10:30:00', 0, NULL);
+
+
+
+
 INSERT [dbo].[Account] ([username], [password], [classify_account]) VALUES (N'admin', N'be8171d6d1387829f83253cd8b387a30', N'admin')
 INSERT [dbo].[Account] ([username], [password], [classify_account]) VALUES (N'LuongND', N'Ngoducluong123!', N'premium')
 INSERT [dbo].[Account] ([username], [password], [classify_account]) VALUES (N'NguyenPT', N'Phamtrungnguyen123!', N'premium')
@@ -664,6 +742,8 @@ INSERT [dbo].[Img] ([img_id], [img_name], [img_url]) VALUES (14, N'ádsa', N'dat
 SET IDENTITY_INSERT [dbo].[Img] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Lession] ON 
+
+
 
 INSERT [dbo].[Lession] ([lession_id], [lession_name], [module_id], [status]) VALUES (1, N'Bài học 1: Học đếm các số từ 0 đến 9', 1, 0)
 INSERT [dbo].[Lession] ([lession_id], [lession_name], [module_id], [status]) VALUES (2, N'Bài học 2: Cách viết các sô từ 1 đến 9
@@ -1432,5 +1512,5 @@ ALTER TABLE [dbo].[User_Class] CHECK CONSTRAINT [FK_User_Class_User]
 GO
 USE [master]
 GO
-ALTER DATABASE [demo_OnlineLearning] SET  READ_WRITE 
+ALTER DATABASE [SWP391_G6] SET  READ_WRITE 
 GO
