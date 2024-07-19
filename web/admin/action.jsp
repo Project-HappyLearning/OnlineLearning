@@ -38,70 +38,97 @@
     </head>
 
     <body>
-          <jsp:include page="navForAdmin.jsp"></jsp:include>
-        <div class="choiceAction container text-center" style="padding: 2em">
-            <div class="choiceAction-content row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
-                <div class="choiceAction-colum col">
-                    <a href="./choiceClassToAddQuiz">
-                        <div class="choiceAction-colum-item p-3" style="background-color: #ff0000;">
-                            <div><i class="custom-icon fa-solid fa-circle-question"></i></div>
-                            <p>Quản lý câu hỏi</p>
-                        </div>
-                    </a>
+        <jsp:include page="navForAdmin.jsp"></jsp:include>
+            <div class="choiceAction container text-center" style="padding: 2em">
+                <div class="choiceAction-content row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+                    <div class="choiceAction-colum col">
+                        <a href="./choiceClassToAddQuiz">
+                            <div class="choiceAction-colum-item p-3" style="background-color: #ff0000;">
+                                <div><i class="custom-icon fa-solid fa-circle-question"></i></div>
+                                <p>Quản lý câu hỏi</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="choiceAction-colum col">
+                        <a href="./ChoiceClassToAddGameImage">
+                            <div class="choiceAction-colum-item p-3" style="background-color: #0081e2;">
+                                <div><i class="custom-icon fa-solid fa-gamepad"></i></div>
+                                <p>Quản lý trò chơi</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="choiceAction-colum col">
+                        <a href="./choiceClassToAddVideo">
+                            <div class="choiceAction-colum-item p-3" style="background-color: #00ed7a;">
+                                <div><i class="custom-icon fa-solid fa-circle-play"></i></div>
+                                <p>Quản lý video</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="choiceAction-colum col">
-                    <a href="./ChoiceClassToAddGameImage">
-                        <div class="choiceAction-colum-item p-3" style="background-color: #0081e2;">
-                            <div><i class="custom-icon fa-solid fa-gamepad"></i></div>
-                            <p>Quản lý trò chơi</p>
-                        </div>
-                    </a>
+                <div class="choiceAction-content row row-cols-5 row-cols-lg-3 g-2 g-lg-3" style="margin-top: 0.5em;">
+                    <div class="choiceAction-colum col">
+                        <a href="./ChoiceClassToAddContent">
+                            <div class="choiceAction-colum-item p-3" style="background-color: #ffa500;">
+                                <div><i  class="custom-icon fa-solid fa-bars"></i></div>
+                                <p>Quản lý content</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="choiceAction-colum col">
+                        <a href="./userManagement">
+                            <div class="choiceAction-colum-item p-3" style="background-color: #9400D3;">
+                                <div><i class="custom-icon fa-solid fa-user"></i></div>
+                                <p>Quản lý người dùng</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="choiceAction-colum col">
+                        <a href="./ChoiceClassToAddModule">
+                            <div class="choiceAction-colum-item p-3" style="background-color: #FF4500;">
+                                <div><i class="custom-icon fa-solid fa-chalkboard-user"></i></div>
+                                <p>Thêm/Sửa chương</p>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
-                <div class="choiceAction-colum col">
-                    <a href="./choiceClassToAddVideo">
-                        <div class="choiceAction-colum-item p-3" style="background-color: #00ed7a;">
-                            <div><i class="custom-icon fa-solid fa-circle-play"></i></div>
-                            <p>Quản lý video</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="choiceAction-content row row-cols-5 row-cols-lg-3 g-2 g-lg-3" style="margin-top: 0.5em;">
-                <div class="choiceAction-colum col">
-                    <a href="./ChoiceClassToAddContent">
-                        <div class="choiceAction-colum-item p-3" style="background-color: #ffa500;">
-                            <div><i  class="custom-icon fa-solid fa-bars"></i></div>
-                            <p>Quản lý content</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="choiceAction-colum col">
-                    <a href="./userManagement">
-                        <div class="choiceAction-colum-item p-3" style="background-color: #9400D3;">
-                            <div><i class="custom-icon fa-solid fa-user"></i></div>
-                            <p>Quản lý người dùng</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="choiceAction-colum col">
-                    <a href="./ChoiceClassToAddModule">
-                        <div class="choiceAction-colum-item p-3" style="background-color: #FF4500;">
-                            <div><i class="custom-icon fa-solid fa-chalkboard-user"></i></div>
-                            <p>Thêm/Sửa chương</p>
-                        </div>
-                    </a>
+                <div class="choiceAction-content row row-cols-5 row-cols-lg-3 g-2 g-lg-3" style="margin-top: 0.5em;">
+                    <div class="choiceAction-colum col">
+                        <a href="./ChoiceClassToAddLession">
+                            <div class="choiceAction-colum-item p-3" style="background-color: #008080;">
+                                <div><i class="custom-icon fa-solid fa-person-chalkboard"></i></div>
+                                <p>Thêm/Sửa bài học</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="choiceAction-colum col">
+                        <a href="manageFeedback">
+                            <div class="choiceAction-colum-item p-3" style="background-color: #ff69b4;">
+                                <div><i class="custom-icon fa-solid fa-check"></i></div>
+                                <p>FeedBack</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="choiceAction-colum col">
+                        <a href="../ManageEduinfor">
+                            <div class="choiceAction-colum-item p-3" style="background-color: #EC6B57;">
+                                <div><i class="custom-icon fa-solid fa-info-circle"></i></div>
+                                <p>Quản lí thông tin</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="choiceAction-colum col" style="margin-top: 0.5em;">
+                        <div class="choiceAction-colum col">
+                            <a href="<%=request.getContextPath()%>/admin/messageList">
+                            <div class="choiceAction-colum-item p-3" style="background-color: #008080;">
+                                <div><i class="custom-icon fa-solid fa-comments"></i></div>
+                                <p>Support Center</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
-            </div>
-            <div class="choiceAction-content row row-cols-5 row-cols-lg-3 g-2 g-lg-3" style="margin-top: 0.5em;">
-                <div class="choiceAction-colum col">
-                    <a href="./ChoiceClassToAddLession">
-                        <div class="choiceAction-colum-item p-3" style="background-color: #008080;">
-                            <div><i class="custom-icon fa-solid fa-person-chalkboard"></i></div>
-                            <p>Thêm/Sửa bài học</p>
-                        </div>
-                    </a>
-                </div>
 
             </div>
         </div>

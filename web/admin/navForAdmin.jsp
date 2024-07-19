@@ -1,3 +1,8 @@
+<%-- 
+    Document   : navForAdmin
+    Created on : Mar 12, 2023, 12:18:17 AM
+    Author     : Khangnekk
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="nav-information" style="justify-content: space-between">

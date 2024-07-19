@@ -1,3 +1,8 @@
+<%-- 
+    Document   : choiceContentLession
+    Created on : Mar 11, 2023, 7:24:35 PM
+    Author     : Acer
+--%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

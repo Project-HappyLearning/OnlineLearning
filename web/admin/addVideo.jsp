@@ -1,4 +1,8 @@
-
+<%-- 
+    Document   : addVideo
+    Created on : Mar 13, 2023, 6:42:01 PM
+    Author     : Khangnekk
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
